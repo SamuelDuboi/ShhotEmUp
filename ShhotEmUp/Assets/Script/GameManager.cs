@@ -42,7 +42,7 @@ public class GameManager :MonoBehaviour
     /// <param name="value"></param>
     public void ScoreChange(float value)
     {
-        score = value;
+        score += value;
         Score.GetComponent<Text>().text = score.ToString();
     }
 

@@ -54,6 +54,11 @@ public class PlayerBehavior : MonoBehaviour
             StartCoroutine(damage());
             rgb.velocity = new Vector2(10, 0);
         }
+        else if (collision.gameObject.tag == "Rock")
+        {
+            StartCoroutine(damage());
+            Destroy(collision.gameObject);
+        }
         if (collision.gameObject.tag == "Ennemi")
             StartCoroutine(damage());
     }

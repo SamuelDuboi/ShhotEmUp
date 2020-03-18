@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1847723227305527694}
   m_Layer: 11
   m_Name: BulletDouble (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 3583379736187298939}
   m_Layer: 11
   m_Name: BulletDouble
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,7 +190,7 @@ GameObject:
   - component: {fileID: 3528482559567523004}
   m_Layer: 11
   m_Name: BulletDouble
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

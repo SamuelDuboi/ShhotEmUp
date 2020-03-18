@@ -18,6 +18,6 @@ namespace name
             
             Destroy(gameObject);
         }
-
+        
     }
 }
