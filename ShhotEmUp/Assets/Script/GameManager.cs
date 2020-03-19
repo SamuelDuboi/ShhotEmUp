@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager :MonoBehaviour
 {
-    float score;
+    public float score;
      GameObject Score;
      GameObject pause;
     // Start is called before the first frame update

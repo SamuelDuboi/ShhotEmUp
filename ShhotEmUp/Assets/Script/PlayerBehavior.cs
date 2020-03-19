@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 public class PlayerBehavior : MonoBehaviour
 {
     Rigidbody2D rgb;
@@ -101,6 +102,7 @@ public class PlayerBehavior : MonoBehaviour
 
         cantShoot = false;
     }
+   
 
 }
 
