@@ -9,7 +9,7 @@ public class EnfantBehavior : MonoBehaviour
     public int scoreWhenDestroy;
     [Range(1, 10)]
     public float speed;
-    float direction = 10;
+    float direction = 5;
     bool isMoving;
     public GameObject rock;
     [Range(1, 10)]
@@ -18,6 +18,7 @@ public class EnfantBehavior : MonoBehaviour
     bool isUpDown;
     public int life;
     public GameObject death;
+    public float cooldown;
     void Start()
     {
         enfantrgb = GetComponent<Rigidbody2D>();
@@ -27,7 +28,7 @@ public class EnfantBehavior : MonoBehaviour
     void FixedUpdate()
     {
         if (isMoving)
-            enfantrgb.velocity = Vector2.up * direction;
+            enfantrgb.velocity = Vector2.up * direction * speed;
 
     }
 
@@ -76,7 +77,7 @@ public class EnfantBehavior : MonoBehaviour
         {
            GameObject currentRock= Instantiate(rock, transform.position, Quaternion.identity);
             currentRock.GetComponent<Rigidbody2D>().velocity = Vector2.left * bulletSpeed;
-            yield return new WaitForSeconds(0.4f);           
+            yield return new WaitForSeconds(cooldown);           
         }
     }
 }
