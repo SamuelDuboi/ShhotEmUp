@@ -15,7 +15,7 @@ public class PlayerBehavior : MonoBehaviour
     Animator animator;
     int attackNumber;
     public Text lifeText;
-
+    public GameObject GameOver;
     public GameObject[] attacks = new GameObject[1];
     void Start()
     {
@@ -71,6 +71,11 @@ public class PlayerBehavior : MonoBehaviour
             lifeText.text = life.ToString();
         else
             lifeText.text = "+99";
+        if (life <= 0)
+        {
+            GameOver.SetActive(true);
+            Time.timeScale = 0;
+        }
         yield return new WaitForSeconds(0.2f);
         cantMove = false;
     }

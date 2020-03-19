@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace name
-{
 public class CameraBehavior : MonoBehaviour
 {
         Rigidbody2D camrgb;   
@@ -19,9 +17,5 @@ public class CameraBehavior : MonoBehaviour
         }
 
 
-    void Update()
-    {
-        
-    }
-}
+  
 }
