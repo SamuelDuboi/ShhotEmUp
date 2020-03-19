@@ -18,12 +18,15 @@ public class BossBehavior : MonoBehaviour
     public GameObject canonEdge;
     public GameObject rock;
     public GameObject[] canons = new GameObject[2];
+    Animator bossAnimator;
+    public GameObject death;
     // Start is called before the first frame update
     void Start()
     {
 
         enfantrgb = GetComponent<Rigidbody2D>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        bossAnimator = GetComponent<Animator>();
 
     }
 
@@ -65,6 +68,7 @@ public class BossBehavior : MonoBehaviour
             {
 
                 gameManager.ScoreChange(scoreWhenDestroy);
+                Instantiate(death, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
 
@@ -81,7 +85,7 @@ public class BossBehavior : MonoBehaviour
 
     IEnumerator Moving()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         canMove = true;
         yield return new WaitForSeconds(Random.Range(7, 12));
         enfantrgb.velocity = Vector2.zero;
@@ -93,6 +97,8 @@ public class BossBehavior : MonoBehaviour
 
     IEnumerator Pattern1()
     {
+        bossAnimator.SetTrigger("IsShooting");
+        yield return new WaitForSeconds(0.3f);
         GameObject currentShrapnelle = Instantiate(shrapnelle, canonEdge.transform);
         int firstRandom = Random.Range(0, target.Length - 1);
         currentShrapnelle.GetComponent<Shrapnelle>().direction = target[firstRandom];
@@ -106,7 +112,6 @@ public class BossBehavior : MonoBehaviour
 
     IEnumerator Pattern2()
     {
-        Debug.Log("Fire");
         for (int x= 0; x<4; x++)
         {
             for (int z =0; z<2; z++)

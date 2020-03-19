@@ -13,6 +13,7 @@ public class BabyBehavior : MonoBehaviour
     public float speed;
     public int scoreWhenDestroy;
     public int life;
+    public GameObject death;
     void Start()
     {
         babyrgb = GetComponent<Rigidbody2D>();
@@ -40,8 +41,10 @@ public class BabyBehavior : MonoBehaviour
                                                          newPos.y - transform.position.y);
                     Rigidbody2D rockRigidbody = rockInstantiate.GetComponent<Rigidbody2D>();
                     rockRigidbody.velocity = distanceSpawns * 10;
-                    Destroy(gameObject);
+                    Instantiate(death, transform.position, Quaternion.identity);
+                    
                 }
+                Destroy(gameObject);
             }
         }
         else if (collision.gameObject.name == "Wall")

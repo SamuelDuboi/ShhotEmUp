@@ -17,6 +17,7 @@ public class PlayerBehavior : MonoBehaviour
     public Text lifeText;
     public GameObject GameOver;
     public GameObject[] attacks = new GameObject[1];
+    public GameObject death;
     void Start()
     {
         splitPoint = transform.GetChild(0).transform;
@@ -73,6 +74,8 @@ public class PlayerBehavior : MonoBehaviour
             lifeText.text = "+99";
         if (life <= 0)
         {
+            Instantiate(death, transform.position, Quaternion.identity);
+            yield return new WaitForSeconds(1f);
             GameOver.SetActive(true);
             Time.timeScale = 0;
         }

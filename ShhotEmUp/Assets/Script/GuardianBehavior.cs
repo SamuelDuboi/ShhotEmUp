@@ -18,6 +18,7 @@ public class GuardianBehavior : MonoBehaviour
     bool isUpDown;
     public int life;
     public float timeBetweenRocks;
+    public GameObject death;
     void Start()
     {
         enfantrgb = GetComponent<Rigidbody2D>();
@@ -42,6 +43,7 @@ public class GuardianBehavior : MonoBehaviour
             {
 
                 gameManager.ScoreChange(scoreWhenDestroy);
+                Instantiate(death, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
 

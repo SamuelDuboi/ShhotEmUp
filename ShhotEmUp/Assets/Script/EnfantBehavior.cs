@@ -17,6 +17,7 @@ public class EnfantBehavior : MonoBehaviour
     bool isFire;
     bool isUpDown;
     public int life;
+    public GameObject death;
     void Start()
     {
         enfantrgb = GetComponent<Rigidbody2D>();
@@ -41,6 +42,7 @@ public class EnfantBehavior : MonoBehaviour
             {
 
                 gameManager.ScoreChange(scoreWhenDestroy);
+                Instantiate(death, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
 

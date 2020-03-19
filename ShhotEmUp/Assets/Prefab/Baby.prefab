@@ -149,6 +149,7 @@ MonoBehaviour:
   speed: 1
   scoreWhenDestroy: 5000
   life: 10
+  death: {fileID: 3552838418459068556, guid: 41fe9d2cc16f5b449b8f12f78d276ec6, type: 3}
 --- !u!95 &8168574743757266366
 Animator:
   serializedVersion: 3
