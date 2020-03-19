@@ -20,6 +20,7 @@ public class BossBehavior : MonoBehaviour
     public GameObject[] canons = new GameObject[2];
     Animator bossAnimator;
     public GameObject death;
+    public GameObject spit;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +64,7 @@ public class BossBehavior : MonoBehaviour
         {
             life--;
             if (collision.gameObject.layer == 11)
+                Instantiate(spit, collision.gameObject.transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
             if (life <= 0)
             {

@@ -7,8 +7,9 @@ public class GuardianBehavior : MonoBehaviour
     Rigidbody2D enfantrgb;
     GameManager gameManager;
     public int scoreWhenDestroy;
-    [Range(1, 10)]
+    [Range(0, 10)]
     public float speed;
+    public float cooldown;
     float direction = 10;
     bool isMoving;
     public GameObject rock;
@@ -19,6 +20,7 @@ public class GuardianBehavior : MonoBehaviour
     public int life;
     public float timeBetweenRocks;
     public GameObject death;
+    public GameObject spit;
     void Start()
     {
         enfantrgb = GetComponent<Rigidbody2D>();
@@ -28,7 +30,7 @@ public class GuardianBehavior : MonoBehaviour
     void FixedUpdate()
     {
         if (isMoving)
-            enfantrgb.velocity = new Vector2(1, 1 * direction);
+            enfantrgb.velocity = new Vector2(1, 1 * direction)*speed;
 
     }
 
@@ -38,6 +40,7 @@ public class GuardianBehavior : MonoBehaviour
         {
             life--;
             if (collision.gameObject.layer == 11)
+                Instantiate(spit, collision.gameObject.transform.position, Quaternion.identity);
                 Destroy(collision.gameObject);
             if (life <= 0)
             {
@@ -79,7 +82,7 @@ public class GuardianBehavior : MonoBehaviour
         {
             GameObject currentRock = Instantiate(rock, transform.position, Quaternion.identity);
             currentRock.GetComponent<Rigidbody2D>().velocity = Vector2.left * bulletSpeed;
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(cooldown);
         }
     }
 }
