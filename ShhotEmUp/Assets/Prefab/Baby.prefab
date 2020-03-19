@@ -148,8 +148,9 @@ MonoBehaviour:
   numberOfRocks: 15
   speed: 1
   scoreWhenDestroy: 5000
-  life: 10
+  life: 5
   death: {fileID: 3552838418459068556, guid: 41fe9d2cc16f5b449b8f12f78d276ec6, type: 3}
+  spit: {fileID: 2932290987459193401, guid: 5873fa06d5f647942b7187f6359ec690, type: 3}
 --- !u!95 &8168574743757266366
 Animator:
   serializedVersion: 3
